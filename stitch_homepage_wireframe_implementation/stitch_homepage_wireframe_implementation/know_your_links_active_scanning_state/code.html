@@ -1,0 +1,921 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Know Your Links — Trust Handshake</title>
+<!-- Tailwind CSS v3 CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Space Grotesk & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            jade: {
+              950: '#0F231C',
+              900: '#153227',
+              850: '#172F26',
+              800: '#1C4839',
+              700: '#265D4B',
+              600: '#347560',
+              500: '#529680',
+              200: '#B6DDD0',
+              100: '#E1EFEA',
+            },
+            limeAccent: '#8FD14F',
+            limeAccentDark: '#75B638',
+            surfacePaper: '#F4F5F0',
+            cardBg: '#FFFFFF',
+            amberCaution: '#FDF3DC',
+            amberText: '#87510C',
+          },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Layout & Specific Details Styling -->
+<style data-purpose="custom-elements">
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #1C4839;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Reticle crosshair styling inside preview container */
+    .reticle-line-v {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(143,209,79,0.3) 30%, rgba(143,209,79,0.5) 50%, rgba(143,209,79,0.3) 70%, rgba(255,255,255,0) 100%);
+      transform: translateX(-50%);
+    }
+
+    /* Custom subtle glass blur for floating badges */
+    .glass-dark {
+      background: rgba(18, 41, 33, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    @keyframes scanProgress {
+      0% { width: 12%; }
+      50% { width: 68%; }
+      100% { width: 92%; }
+    }
+    .animate-scan-progress {
+      animation: scanProgress 2.8s ease-in-out infinite alternate;
+    }
+  </style>
+<!-- END: Custom Layout & Specific Details Styling -->
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-limeAccent selection:text-jade-950"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Know Your Links — Trust Handshake</title>
+<!-- Tailwind CSS v3 CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Space Grotesk & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            jade: {
+              950: '#0F231C',
+              900: '#153227',
+              850: '#172F26',
+              800: '#1C4839',
+              700: '#265D4B',
+              600: '#347560',
+              500: '#529680',
+              200: '#B6DDD0',
+              100: '#E1EFEA',
+            },
+            limeAccent: '#8FD14F',
+            limeAccentDark: '#75B638',
+            surfacePaper: '#F4F5F0',
+            cardBg: '#FFFFFF',
+            amberCaution: '#FDF3DC',
+            amberText: '#87510C',
+          },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Layout & Specific Details Styling -->
+<style data-purpose="custom-elements">
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #1C4839;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Reticle crosshair styling inside preview container */
+    .reticle-line-v {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(143,209,79,0.3) 30%, rgba(143,209,79,0.5) 50%, rgba(143,209,79,0.3) 70%, rgba(255,255,255,0) 100%);
+      transform: translateX(-50%);
+    }
+
+    /* Custom subtle glass blur for floating badges */
+    .glass-dark {
+      background: rgba(18, 41, 33, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    @keyframes scanProgress {
+      0% { width: 12%; }
+      50% { width: 68%; }
+      100% { width: 92%; }
+    }
+    .animate-scan-progress {
+      animation: scanProgress 2.8s ease-in-out infinite alternate;
+    }
+  </style>
+<!-- END: Custom Layout & Specific Details Styling -->
+
+<svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Know Your Links — Trust Handshake</title>
+<!-- Tailwind CSS v3 CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Space Grotesk & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            jade: {
+              950: '#0F231C',
+              900: '#153227',
+              850: '#172F26',
+              800: '#1C4839',
+              700: '#265D4B',
+              600: '#347560',
+              500: '#529680',
+              200: '#B6DDD0',
+              100: '#E1EFEA',
+            },
+            limeAccent: '#8FD14F',
+            limeAccentDark: '#75B638',
+            surfacePaper: '#F4F5F0',
+            cardBg: '#FFFFFF',
+            amberCaution: '#FDF3DC',
+            amberText: '#87510C',
+          },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Layout & Specific Details Styling -->
+<style data-purpose="custom-elements">
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #1C4839;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Reticle crosshair styling inside preview container */
+    .reticle-line-v {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(143,209,79,0.3) 30%, rgba(143,209,79,0.5) 50%, rgba(143,209,79,0.3) 70%, rgba(255,255,255,0) 100%);
+      transform: translateX(-50%);
+    }
+
+    /* Custom subtle glass blur for floating badges */
+    .glass-dark {
+      background: rgba(18, 41, 33, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    @keyframes scanProgress {
+      0% { width: 12%; }
+      50% { width: 68%; }
+      100% { width: 92%; }
+    }
+    .animate-scan-progress {
+      animation: scanProgress 2.8s ease-in-out infinite alternate;
+    }
+  </style>
+<!-- END: Custom Layout & Specific Details Styling -->
+
+<svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Know Your Links — Trust Handshake</title>
+<!-- Tailwind CSS v3 CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- BEGIN: SecondaryLightSection -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            jade: {
+              950: '#0F231C',
+              900: '#153227',
+              850: '#172F26',
+              800: '#1C4839',
+              700: '#265D4B',
+              600: '#347560',
+              500: '#529680',
+              200: '#B6DDD0',
+              100: '#E1EFEA',
+            },
+            limeAccent: '#8FD14F',
+            limeAccentDark: '#75B638',
+            surfacePaper: '#F4F5F0',
+            cardBg: '#FFFFFF',
+            amberCaution: '#FDF3DC',
+            amberText: '#87510C',
+          },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Layout & Specific Details Styling -->
+<style data-purpose="custom-elements">
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #1C4839;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Reticle crosshair styling inside preview container */
+    .reticle-line-v {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(143,209,79,0.3) 30%, rgba(143,209,79,0.5) 50%, rgba(143,209,79,0.3) 70%, rgba(255,255,255,0) 100%);
+      transform: translateX(-50%);
+    }
+
+    /* Custom subtle glass blur for floating badges */
+    .glass-dark {
+      background: rgba(18, 41, 33, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    @keyframes scanProgress {
+      0% { width: 12%; }
+      50% { width: 68%; }
+      100% { width: 92%; }
+    }
+    .animate-scan-progress {
+      animation: scanProgress 2.8s ease-in-out infinite alternate;
+    }
+  </style>
+<!-- END: Custom Layout & Specific Details Styling -->
+
+
+<!-- BEGIN: MainHeader -->
+<header class="w-full bg-[#1C4839] border-b border-[#245745]/60 px-6 sm:px-10 lg:px-16 py-5">
+<div class="max-w-[1400px] mx-auto flex items-center justify-between">
+<!-- Logo and Brand Title -->
+<div class="flex items-center gap-3.5" data-purpose="brand-identity">
+<!-- Circular logo icon -->
+<div class="w-10 h-10 rounded-full bg-[#8FD14F] flex items-center justify-center text-jade-950 shadow-sm">
+<svg class="w-5 h-5 text-jade-950" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24">
+<line x1="7" x2="17" y1="9" y2="9"></line>
+<path d="M8 15c1 1.5 2.5 2 4 2s3-.5 4-2"></path>
+</svg>
+</div>
+<div>
+<h1 class="text-base font-bold text-white tracking-tight leading-none">Know Your Links</h1>
+<p class="text-[10px] font-mono uppercase tracking-[0.22em] text-[#91C7B7] mt-1 font-medium">TRUST HANDSHAKE</p>
+</div>
+</div>
+<!-- Navigation Links and Live Status Pill -->
+<nav aria-label="Main Navigation" class="flex items-center gap-6 sm:gap-8">
+<a class="text-sm font-medium text-emerald-100/90 hover:text-white transition-colors" href="#how-it-inspects">How it inspects</a>
+<a class="text-sm font-medium text-emerald-100/90 hover:text-white transition-colors" href="#providers">Providers</a>
+<a class="text-sm font-medium text-emerald-100/90 hover:text-white transition-colors" href="#limitations">Limitations</a>
+<!-- Live sources status pill -->
+<div class="flex items-center gap-2 bg-[#17372C] border border-[#275947] px-3.5 py-1.5 rounded-full shadow-inner" data-purpose="status-badge">
+<span class="w-2 h-2 rounded-full bg-[#8FD14F] inline-block animate-pulse"></span>
+<span class="text-xs font-mono font-medium text-emerald-100 tracking-wide">6 sources live</span>
+</div>
+</nav>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<main class="flex-grow bg-[#1C4839] px-6 sm:px-10 lg:px-16 pt-8 pb-14">
+<div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Left Column: Inspection Input & Copy -->
+<section aria-label="URL Inspection Console" class="lg:col-span-6 flex flex-col justify-center">
+<!-- Badge: Evidence-Led URL Inspection -->
+<div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#183B2F] border border-[#2B604D] w-fit mb-6">
+<svg class="w-4 h-4 text-[#8FD14F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+</svg>
+<span class="text-[11px] font-mono uppercase tracking-[0.16em] text-[#A6D5C6] font-medium">EVIDENCE-LED URL INSPECTION</span>
+</div>
+<!-- Headline -->
+<h2 class="text-5xl sm:text-6xl xl:text-[68px] font-bold text-white tracking-tight leading-[1.06] mb-5">
+          Know before<br>you open<span class="text-[#8FD14F]">.</span>
+</h2>
+<!-- Subheading -->
+<p class="text-emerald-100/80 italic font-normal text-lg sm:text-xl leading-relaxed max-w-xl mb-9">
+          Paste an unfamiliar link. We ask six security sources what they have seen — then show you, plainly.
+        </p>
+<!-- URL Input & Action Container Card -->
+<div class="bg-white rounded-3xl p-6 sm:p-7 shadow-2xl text-slate-800 border border-white/20" data-purpose="scanner-input-card">
+<!-- Card Sub-header -->
+<div class="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">
+<span class="font-semibold text-slate-500">PASTE UNFAMILIAR URL</span>
+<div class="flex items-center gap-1.5 text-slate-400 text-[11px] font-medium lowercase">
+<svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+</svg>
+<span>Never auto-opens</span>
+</div>
+</div>
+<!-- URL Input Box with scheme pill -->
+<div class="relative flex items-center bg-[#F3F4F1] rounded-xl px-4 py-3.5 mb-4 border border-slate-200/90 focus-within:ring-2 focus-within:ring-[#1C4839]/30 transition-all">
+<svg class="w-4 h-4 text-slate-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+<input class="bg-transparent border-0 p-0 text-slate-700 font-mono text-sm w-full focus:ring-0 focus:outline-none select-all" data-purpose="url-input" readonly="" type="text" value="https://secure-payments-verify-login.com/si...">
+<span class="bg-[#E5E7DF] text-slate-500 text-[11px] font-mono px-2 py-0.5 rounded ml-2 flex-shrink-0">
+              https://
+            </span>
+</div>
+<!-- Button Row: Analyze & Paste -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+<button class="sm:col-span-2 bg-[#17251F] text-white font-medium text-sm rounded-xl py-3.5 px-6 flex items-center justify-center gap-2.5 transition-all shadow-sm ring-1 ring-[#8FD14F]/40 cursor-wait">
+<svg class="w-4 h-4 animate-spin text-[#8FD14F]" fill="none" viewBox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+</svg>
+<span class="font-mono text-sm tracking-wide">Inspecting...</span>
+</button>
+<button class="bg-[#8FD14F] hover:bg-[#81C044] text-[#152B21] font-semibold text-sm rounded-xl py-3.5 px-4 flex items-center justify-center gap-2 transition-all shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<rect height="4" rx="1" ry="1" width="8" x="8" y="2"></rect>
+<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+</svg>
+<span>Paste</span>
+</button>
+</div>
+<!-- Privacy / Security Sent Disclaimer -->
+<div class="flex items-start gap-2 text-[12px] text-slate-500 mb-4 pb-4 border-b border-slate-100">
+<svg class="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<line x1="2" x2="22" y1="12" y2="12"></line>
+<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+</svg>
+<span>Sent to 6 analysis sources. URLs may be shared per provider terms.</span>
+</div>
+<!-- Defanged preview & Copy safe link -->
+<div class="flex flex-wrap items-center justify-between text-xs font-mono text-slate-500 gap-2">
+<div>
+<span class="text-slate-400">Defanged preview: </span>
+<span class="text-slate-700 font-medium">secure-payments-verify-login[.]com</span>
+</div>
+<button class="underline decoration-slate-400 hover:text-slate-900 transition-colors cursor-pointer font-medium">
+              Copy safe link
+            </button>
+</div>
+</div>
+<!-- Trust Checkmarks Line -->
+<div class="flex flex-wrap items-center gap-6 mt-6 text-xs sm:text-sm font-medium text-emerald-100/90">
+<div class="flex items-center gap-1.5">
+<span class="text-[#8FD14F]">✓</span>
+<span>No account needed</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="text-[#8FD14F]">✓</span>
+<span>Conflicts stay visible</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="text-[#8FD14F]">✓</span>
+<span>Print-friendly report</span>
+</div>
+</div>
+</section>
+<!-- Right Column: Interactive Handshake / 3D Metaphor Window -->
+<section aria-label="Inspection Simulation Viewport" class="lg:col-span-6 relative w-full flex items-center justify-center">
+<div class="w-full relative rounded-[32px] overflow-hidden border border-[#285746] shadow-2xl bg-[#122820] aspect-[4/3] sm:aspect-[1.18/1]">
+<!-- Continuous line-art animated SVG handshake asset -->
+<!-- STITCH_SVG_START:ANIMATION_24 class="w-full h-full" --><div class="w-full h-full" id="animated-svg-ANIMATION_24" style="display:block;"><svg height="100%" style="background: transparent; overflow: visible;" viewBox="0 0 1000 600" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- High-energy glow filters for scanning pulses -->
+<filter height="200%" id="scan-glow-lime" width="200%" x="-50%" y="-50%">
+<feGaussianBlur result="blur1" stdDeviation="4"></feGaussianBlur>
+<feGaussianBlur result="blur2" stdDeviation="12"></feGaussianBlur>
+<feMerge>
+<feMergeNode in="blur2"></feMergeNode>
+<feMergeNode in="blur1"></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+</feMerge>
+</filter>
+<filter height="200%" id="scan-glow-mint" width="200%" x="-50%" y="-50%">
+<feGaussianBlur result="blur1" stdDeviation="5"></feGaussianBlur>
+<feGaussianBlur result="blur2" stdDeviation="16"></feGaussianBlur>
+<feMerge>
+<feMergeNode in="blur2"></feMergeNode>
+<feMergeNode in="blur1"></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+</feMerge>
+</filter>
+<linearGradient id="scanGradLeft" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#91C7B7" stop-opacity="0.4"></stop>
+<stop offset="60%" stop-color="#D4F6EB" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#8FD14F" stop-opacity="1"></stop>
+</linearGradient>
+<linearGradient id="scanGradRight" x1="100%" x2="0%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#91C7B7" stop-opacity="0.4"></stop>
+<stop offset="60%" stop-color="#D4F6EB" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#8FD14F" stop-opacity="1"></stop>
+</linearGradient>
+<linearGradient id="beamGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#8FD14F" stop-opacity="0.9"></stop>
+<stop offset="50%" stop-color="#D4F6EB" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#8FD14F" stop-opacity="0.9"></stop>
+</linearGradient>
+<style>
+  /* Scanning State: Hands moved closer together (shifted inward by ~60px each) + active rhythmic data ping pulses */
+  @keyframes scanHandsApproachLeft {
+    0%, 100% { transform: translate(52px, 0px) rotate(0.4deg); }
+    50% { transform: translate(66px, -4px) rotate(1.2deg); }
+  }
+  @keyframes scanHandsApproachRight {
+    0%, 100% { transform: translate(-52px, 0px) rotate(-0.4deg); }
+    50% { transform: translate(-66px, 4px) rotate(-1.2deg); }
+  }
+
+  /* Rapid pulsing data waves radiating outward from inspection contact point */
+  @keyframes radarPulse {
+    0% { r: 12px; opacity: 0.9; stroke-width: 3.5px; }
+    50% { opacity: 0.6; }
+    100% { r: 110px; opacity: 0; stroke-width: 0.8px; }
+  }
+
+  /* Fast traveling packet pulses flowing left-to-right and right-to-left */
+  @keyframes packetFlowForward {
+    0% { stroke-dashoffset: 140; opacity: 0.2; }
+    30% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { stroke-dashoffset: -140; opacity: 0.2; }
+  }
+  @keyframes packetFlowReverse {
+    0% { stroke-dashoffset: -140; opacity: 0.2; }
+    30% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { stroke-dashoffset: 140; opacity: 0.2; }
+  }
+
+  /* Central inspection nexus energy throbbing */
+  @keyframes nexusThrobbing {
+    0%, 100% { transform: scale(0.92); opacity: 0.65; }
+    50% { transform: scale(1.18); opacity: 0.98; }
+  }
+
+  /* Quick scanning spark particles circulating between fingers */
+  @keyframes particleZip1 {
+    0% { transform: translate(-35px, 6px) scale(0.6); opacity: 0.1; }
+    40% { opacity: 1; }
+    100% { transform: translate(35px, -6px) scale(1.1); opacity: 0; }
+  }
+  @keyframes particleZip2 {
+    0% { transform: translate(32px, 12px) scale(0.5); opacity: 0.1; }
+    50% { opacity: 1; }
+    100% { transform: translate(-32px, -10px) scale(1.2); opacity: 0; }
+  }
+  @keyframes particleZip3 {
+    0% { transform: translate(-22px, -15px) scale(0.7); opacity: 0; }
+    50% { opacity: 0.9; }
+    100% { transform: translate(25px, 15px) scale(0.5); opacity: 0; }
+  }
+
+  .left-hand-scanning {
+    animation: scanHandsApproachLeft 3.2s ease-in-out infinite;
+    transform-origin: 200px 320px;
+  }
+  .right-hand-scanning {
+    animation: scanHandsApproachRight 3.2s ease-in-out infinite;
+    transform-origin: 800px 280px;
+  }
+  .nexus-core {
+    animation: nexusThrobbing 1.8s ease-in-out infinite;
+    transform-origin: 500px 300px;
+  }
+  .pulse-wave-1 {
+    animation: radarPulse 2.2s cubic-bezier(0.1, 0.4, 0.2, 1) infinite;
+  }
+  .pulse-wave-2 {
+    animation: radarPulse 2.2s cubic-bezier(0.1, 0.4, 0.2, 1) infinite 0.7s;
+  }
+  .pulse-wave-3 {
+    animation: radarPulse 2.2s cubic-bezier(0.1, 0.4, 0.2, 1) infinite 1.4s;
+  }
+
+  .beam-active {
+    stroke-dasharray: 10 14;
+    animation: packetFlowForward 1.4s linear infinite;
+  }
+  .beam-active-reverse {
+    stroke-dasharray: 6 12;
+    animation: packetFlowReverse 1.2s linear infinite;
+  }
+
+  .scan-particle-1 { animation: particleZip1 1.6s ease-in-out infinite; }
+  .scan-particle-2 { animation: particleZip2 1.9s ease-in-out infinite 0.4s; }
+  .scan-particle-3 { animation: particleZip3 1.5s ease-in-out infinite 0.9s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .left-hand-scanning, .right-hand-scanning, .nexus-core, .pulse-wave-1, .pulse-wave-2, .pulse-wave-3,
+    .beam-active, .beam-active-reverse, .scan-particle-1, .scan-particle-2, .scan-particle-3 {
+      animation: none !important;
+    }
+  }
+</style>
+</defs>
+<!-- ACTIVE SCANNING RADAR WAVES (Originating at close touch nexus ~ (500, 302)) -->
+<g filter="url(#scan-glow-lime)">
+<circle class="pulse-wave-1" cx="500" cy="302" fill="none" stroke="#8FD14F" stroke-opacity="0.8"></circle>
+<circle class="pulse-wave-2" cx="500" cy="302" fill="none" stroke="#D4F6EB" stroke-opacity="0.7"></circle>
+<circle class="pulse-wave-3" cx="500" cy="302" fill="none" stroke="#8FD14F" stroke-opacity="0.5"></circle>
+</g>
+<!-- Central inspection energy nexus with active rotating harmonic fields -->
+<g class="nexus-core" filter="url(#scan-glow-mint)">
+<circle cx="500" cy="302" fill="#8FD14F" fill-opacity="0.14" r="54"></circle>
+<circle cx="500" cy="302" fill="#D4F6EB" fill-opacity="0.22" r="28"></circle>
+<circle cx="500" cy="302" fill="#FFFFFF" fill-opacity="0.75" r="5"></circle>
+<ellipse cx="500" cy="302" rx="72" ry="40" stroke="#8FD14F" stroke-dasharray="6 8" stroke-opacity="0.5" stroke-width="1.5"></ellipse>
+</g>
+<!-- FAST ACTIVE DATA BEAMS BRIDGING REACHING FINGERS -->
+<g>
+<!-- Primary High-Velocity Inspection Arcs (Interlacing between index and thumb contacts) -->
+<path class="beam-active" d="M 458 300 C 476 294, 492 308, 524 296" fill="none" filter="url(#scan-glow-lime)" stroke="url(#beamGrad)" stroke-linecap="round" stroke-width="3"></path>
+<path class="beam-active-reverse" d="M 466 318 C 484 326, 502 312, 532 308" fill="none" filter="url(#scan-glow-mint)" stroke="#D4F6EB" stroke-linecap="round" stroke-width="2"></path>
+<path class="beam-active" d="M 450 274 C 478 268, 510 278, 536 288" fill="none" filter="url(#scan-glow-lime)" stroke="#8FD14F" stroke-linecap="round" stroke-opacity="0.8" stroke-width="1.8"></path>
+<!-- Multi-provider telemetry sparks passing through connection gap -->
+<g transform="translate(500, 302)">
+<circle class="scan-particle-1" cx="0" cy="0" fill="#8FD14F" filter="url(#scan-glow-lime)" r="3.5"></circle>
+<circle class="scan-particle-2" cx="0" cy="0" fill="#FFFFFF" filter="url(#scan-glow-mint)" r="3"></circle>
+<circle class="scan-particle-3" cx="0" cy="0" fill="#D4F6EB" filter="url(#scan-glow-mint)" r="2.5"></circle>
+</g>
+</g>
+<!-- LEFT HAND (Moved closer into center nexus, poised right at connection gap) -->
+<g class="left-hand-scanning">
+<!-- Outer Cuff / Sleeve Contour -->
+<path d="M 40 400 L 160 380 C 175 350, 185 305, 175 270 L 60 285" fill="none" stroke="url(#scanGradLeft)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Cuff accent band -->
+<path d="M 160 380 C 185 385, 205 350, 195 300 C 190 270, 175 268, 170 270" fill="none" stroke="#91C7B7" stroke-opacity="0.85" stroke-width="2"></path>
+<!-- Wrist & Palm line flow -->
+<path d="M 195 315 C 230 310, 275 305, 310 290 C 335 280, 360 250, 350 220 C 342 195, 310 205, 290 225 C 275 240, 255 255, 220 265" fill="none" stroke="url(#scanGradLeft)" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Thumb gesture reaching outward -->
+<path d="M 310 290 C 345 285, 385 270, 410 260 C 425 254, 435 264, 420 278 C 395 300, 360 315, 330 325" fill="none" filter="url(#scan-glow-mint)" stroke="url(#scanGradLeft)" stroke-linecap="round" stroke-width="3"></path>
+<!-- Index Finger (Reaching forward closely into scan nexus) -->
+<path d="M 345 320 C 380 312, 424 305, 458 300 C 464 298, 467 305, 460 312 C 422 332, 375 348, 335 350" fill="none" filter="url(#scan-glow-lime)" stroke="#D4F6EB" stroke-linecap="round" stroke-width="3.2"></path>
+<!-- Middle Finger -->
+<path d="M 335 350 C 370 345, 420 340, 442 338 C 450 337, 451 346, 442 352 C 406 372, 365 380, 320 380" fill="none" stroke="url(#scanGradLeft)" stroke-linecap="round" stroke-width="2.6"></path>
+<!-- Ring Finger & Pinky curls -->
+<path d="M 320 380 C 350 380, 395 378, 414 378 C 422 378, 422 387, 410 391 C 378 406, 340 410, 300 405" fill="none" stroke="url(#scanGradLeft)" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M 300 405 C 330 408, 365 410, 384 412 C 392 413, 392 421, 382 424 C 348 436, 310 435, 270 420 C 235 405, 205 380, 185 365" fill="none" stroke="url(#scanGradLeft)" stroke-linecap="round" stroke-width="2"></path>
+<!-- Palm interior contour line -->
+<path d="M 270 340 C 290 355, 305 370, 300 390" fill="none" stroke="#91C7B7" stroke-linecap="round" stroke-opacity="0.7" stroke-width="1.5"></path>
+</g>
+<!-- RIGHT HAND (Moved closer into center nexus to meet partner hand) -->
+<g class="right-hand-scanning">
+<!-- Sleeve / Arm Entrance -->
+<path d="M 960 210 L 840 230 C 825 260, 815 305, 825 340 L 940 325" fill="none" stroke="url(#scanGradRight)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Cuff band accent -->
+<path d="M 840 230 C 815 225, 795 260, 805 310 C 810 340, 825 342, 830 340" fill="none" stroke="#91C7B7" stroke-opacity="0.85" stroke-width="2"></path>
+<!-- Wrist & Upper Palm line -->
+<path d="M 805 295 C 770 300, 725 305, 690 320 C 665 330, 640 360, 650 390 C 658 415, 690 405, 710 385 C 725 370, 745 355, 780 345" fill="none" stroke="url(#scanGradRight)" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Thumb reaching across -->
+<path d="M 690 320 C 655 325, 608 340, 578 350 C 562 356, 552 346, 568 332 C 596 308, 638 294, 670 285" fill="none" filter="url(#scan-glow-mint)" stroke="url(#scanGradRight)" stroke-linecap="round" stroke-width="3"></path>
+<!-- Index Finger (Extending into connection nexus) -->
+<path d="M 655 290 C 615 298, 546 306, 524 296 C 516 293, 516 284, 525 279 C 558 261, 604 251, 635 248" fill="none" filter="url(#scan-glow-lime)" stroke="#D4F6EB" stroke-linecap="round" stroke-width="3.2"></path>
+<!-- Middle Finger -->
+<path d="M 635 248 C 595 253, 550 258, 532 260 C 524 261, 523 252, 531 247 C 566 228, 606 219, 650 218" fill="none" stroke="url(#scanGradRight)" stroke-linecap="round" stroke-width="2.6"></path>
+<!-- Ring and Pinky finger contours -->
+<path d="M 650 218 C 615 218, 575 220, 558 220 C 549 220, 549 211, 560 207 C 592 192, 626 188, 670 193" fill="none" stroke="url(#scanGradRight)" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M 670 193 C 636 190, 602 188, 584 186 C 576 185, 576 177, 585 174 C 618 162, 656 162, 700 178 C 735 193, 765 218, 785 233" fill="none" stroke="url(#scanGradRight)" stroke-linecap="round" stroke-width="2"></path>
+<!-- Palm interior contour -->
+<path d="M 700 270 C 680 255, 665 240, 670 220" fill="none" stroke="#91C7B7" stroke-linecap="round" stroke-opacity="0.7" stroke-width="1.5"></path>
+</g>
+</svg></div><!-- STITCH_SVG_END:ANIMATION_24 -->
+<!-- Vertical Reticle Laser Line & Center Reticle -->
+<div class="reticle-line-v pointer-events-none z-10"></div>
+<!-- Top-Left Status Pill: SCANNING — hands approaching -->
+<div class="absolute top-5 left-5 glass-dark border border-[#305F4F]/80 rounded-full px-3 py-1 flex items-center gap-2 z-10">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[#8FD14F]"></span>
+</span>
+<span class="text-[11px] font-mono text-emerald-100 font-medium tracking-wide">SCANNING — hands approaching</span>
+</div>
+<!-- Top-Right Status Pill: motion: active telemetry -->
+<div class="absolute top-5 right-5 glass-dark border border-[#305F4F]/80 rounded-full px-3 py-1 z-10">
+<span class="text-[11px] font-mono text-emerald-100/80 font-medium">motion: active telemetry</span>
+</div>
+<!-- Center Reticle Icon & Pill -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none z-10">
+<div class="w-10 h-10 rounded-full bg-[#18392F]/80 border border-[#8FD14F]/80 flex items-center justify-center text-white mb-2 shadow-lg backdrop-blur-sm">
+<svg class="w-5 h-5 text-[#8FD14F] animate-spin" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M4 8V6a2 2 0 0 1 2-2h2"></path>
+<path d="M4 16v2a2 2 0 0 0 2 2h2"></path>
+<path d="M16 4h2a2 2 0 0 1 2 2v2"></path>
+<path d="M16 20h2a2 2 0 0 0 2-2v-2"></path>
+</svg>
+</div>
+<div class="glass-dark border border-[#326151] rounded-full px-3 py-0.5 shadow-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
+<span class="text-[11px] font-mono text-emerald-100">inspecting payload...</span>
+</div>
+</div>
+<!-- Bottom Overlaid Status Cards inside Window -->
+<div class="absolute bottom-5 inset-x-5 grid grid-cols-2 gap-3.5 z-10" data-purpose="viewport-status-cards">
+<!-- Left Overlay Card: Overall Index -->
+<div class="bg-[#18352A]/90 backdrop-blur-md rounded-2xl p-4 border border-[#275344] text-white">
+<p class="text-[10px] font-mono tracking-wider text-emerald-200/70 uppercase font-semibold mb-1">OVERALL INDEX</p>
+<div class="text-base sm:text-lg font-bold font-mono tracking-tight text-white mb-1.5 flex items-center gap-2">
+<span class="text-[#8FD14F] animate-pulse">evaluating 6 sources...</span>
+</div>
+<div class="w-full bg-[#122820] h-1.5 rounded-full overflow-hidden mb-1.5 border border-[#275344]">
+<div class="bg-gradient-to-r from-[#8FD14F] to-[#D4F6EB] h-full rounded-full animate-scan-progress"></div>
+</div>
+<p class="text-[11px] text-emerald-200/70 truncate">Heuristic, not a probability</p>
+</div>
+<!-- Right Overlay Card: Provider Verdict -->
+<div class="bg-[#18352A]/90 backdrop-blur-md rounded-2xl p-4 border border-[#275344] text-white">
+<p class="text-[10px] font-mono tracking-wider text-emerald-200/70 uppercase font-semibold mb-1">PROVIDER VERDICT</p>
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+<p class="text-base sm:text-lg font-bold tracking-tight text-amber-300 truncate">Querying feeds...</p>
+</div>
+<p class="text-[11px] text-emerald-200/70 truncate">Unknown is never shown as safe</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- END: HeroSection -->
+<!-- BEGIN: SecondaryLightSection -->
+<section aria-label="Provider Verification Network" class="bg-[#F4F5F0] text-slate-800 px-6 sm:px-10 lg:px-16 py-10 sm:py-12 border-t border-[#14362A]">
+<div class="max-w-[1400px] mx-auto">
+<!-- Section Title & Legend Row -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-200/80 mb-7 gap-3">
+<h3 class="text-xs font-mono font-medium tracking-[0.14em] text-slate-500 uppercase">
+          ONE PASTE ⛶ SIX INDEPENDENT CHECKS + EVIDENCE
+        </h3>
+<!-- Status Legend Indicators -->
+<div class="flex items-center gap-4 text-xs font-mono text-slate-600">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+<span>clean</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#EF4444]"></span>
+<span>threat</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#D97706]"></span>
+<span>unknown ≠ safe</span>
+</div>
+</div>
+</div>
+<!-- 6 Provider Cards Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-7" data-purpose="provider-grid">
+<!-- Provider 1: PhishGuard -->
+<div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-colors">
+<div>
+<div class="w-6 h-6 text-slate-700 mb-3">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+</svg>
+</div>
+<h4 class="font-bold text-sm text-slate-900 tracking-tight">PhishGuard</h4>
+<p class="text-xs text-slate-500 font-mono mt-0.5">reputation</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-mono text-amber-600">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span>checking...</span>
+</div>
+</div>
+<!-- Provider 2: Safe Browsing -->
+<div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-colors">
+<div>
+<div class="w-6 h-6 text-slate-700 mb-3">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<line x1="2" x2="22" y1="12" y2="12"></line>
+<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+</svg>
+</div>
+<h4 class="font-bold text-sm text-slate-900 tracking-tight">Safe Browsing</h4>
+<p class="text-xs text-slate-500 font-mono mt-0.5">Google signal</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-mono text-amber-600">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span>checking...</span>
+</div>
+</div>
+<!-- Provider 3: URLhaus -->
+<div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-colors">
+<div>
+<div class="w-6 h-6 text-slate-700 mb-3">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<rect height="12" rx="4" width="8" x="8" y="6"></rect>
+<path d="m19 7-3 2"></path>
+<path d="m5 7 3 2"></path>
+<path d="m19 17-3-2"></path>
+<path d="m5 17 3-2"></path>
+<line x1="12" x2="12" y1="2" y2="6"></line>
+</svg>
+</div>
+<h4 class="font-bold text-sm text-slate-900 tracking-tight">URLhaus</h4>
+<p class="text-xs text-slate-500 font-mono mt-0.5">malware dist.</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-mono text-amber-600">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span>checking...</span>
+</div>
+</div>
+<!-- Provider 4: VirusTotal -->
+<div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-colors">
+<div>
+<div class="w-6 h-6 text-slate-700 mb-3">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+<polyline points="2 17 12 22 22 17"></polyline>
+<polyline points="2 12 12 17 22 12"></polyline>
+</svg>
+</div>
+<h4 class="font-bold text-sm text-slate-900 tracking-tight">VirusTotal</h4>
+<p class="text-xs text-slate-500 font-mono mt-0.5">multi-engine</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-mono text-amber-600">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span>checking...</span>
+</div>
+</div>
+<!-- Provider 5: urlscan.io -->
+<div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-colors">
+<div>
+<div class="w-6 h-6 text-slate-700 mb-3">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+<path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+<path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+<path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+</svg>
+</div>
+<h4 class="font-bold text-sm text-slate-900 tracking-tight">urlscan.io</h4>
+<p class="text-xs text-slate-500 font-mono mt-0.5">page render</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-mono text-amber-600">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span>checking...</span>
+</div>
+</div>
+<!-- Provider 6: LinkGuard ML -->
+<div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-colors">
+<div>
+<div class="w-6 h-6 text-slate-700 mb-3">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="3"></circle>
+<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+</svg>
+</div>
+<h4 class="font-bold text-sm text-slate-900 tracking-tight">LinkGuard ML</h4>
+<p class="text-xs text-slate-500 font-mono mt-0.5">lexical model</p>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-mono text-amber-600">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span>checking...</span>
+</div>
+</div>
+</div>
+<!-- Two Callout Banners Below Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4" data-purpose="clarity-banners">
+<!-- Caution Callout Banner (Left) -->
+<div class="bg-[#FBF4E4] border border-[#F1E0B9] rounded-2xl p-4 sm:px-5 sm:py-4 flex items-center gap-3.5 text-xs sm:text-[13px] text-[#7A4B0E] leading-snug">
+<svg class="w-5 h-5 flex-shrink-0 text-[#9E6412]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 1 1.73-3Z"></path>
+<line x1="12" x2="12" y1="9" y2="13"></line>
+<line x1="12" x2="12.01" y1="17" y2="17"></line>
+</svg>
+<div>
+<span class="font-bold">Unknown stays amber.</span> Failed or missing provider data is never shown as clean. No-threats-detected is not a guarantee of safety.
+          </div>
+</div>
+<!-- Info / Protocol Callout Banner (Right) -->
+<div class="bg-[#EAECE6] border border-[#D8DBD2] rounded-2xl p-4 sm:px-5 sm:py-4 flex items-center gap-3.5 text-xs sm:text-[13px] text-slate-700 leading-snug">
+<svg class="w-5 h-5 flex-shrink-0 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+<polyline points="14 2 14 8 20 8"></polyline>
+<line x1="16" x2="8" y1="13" y2="13"></line>
+<line x1="16" x2="8" y1="17" y2="17"></line>
+<polyline points="10 9 9 9 8 9"></polyline>
+</svg>
+<div>
+<span class="font-bold text-slate-900">Evidence before claims.</span> Overall index (out of 100) is kept separate from each provider score, with guidance and limitations attached.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SecondaryLightSection -->
+<!-- BEGIN: MainFooter -->
+<footer class="w-full bg-[#132A21] border-t border-[#1C3E32] px-6 sm:px-10 lg:px-16 py-4">
+<div class="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-[#8BB7A7] gap-3">
+<!-- Copyright & Disclaimer -->
+<div>
+        © Know Your Links — awareness tool, not antivirus. Does not guarantee safety.
+      </div>
+<!-- Monospace Meta Tags -->
+<div class="flex items-center gap-2">
+<span>Heuristic index out of 100</span>
+<span>•</span>
+<span>Reduced-motion safe</span>
+<span>•</span>
+<span>Mobile ready</span>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>

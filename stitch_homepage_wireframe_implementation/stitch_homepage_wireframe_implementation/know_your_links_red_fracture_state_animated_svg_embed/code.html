@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-[#1C4839] min-h-screen text-[#E4EDE8] antialiased selection:bg-[#34D399] selection:text-black flex flex-col justify-between"><svg aria-hidden="true" class="inline-defs-container" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Know Your Links - Red Fracture Threat Detection Hero</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="typography">
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #1A3E31;
+      color: #E2ECE8;
+    }
+    
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+<style data-purpose="custom-layout">
+    /* Subtle custom dot matrix background for visual stage */
+    .bg-grid-dots {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+  </style>
+<style data-purpose="svg-fracture-animations">
+    /* Left Reaching Hand Animation: Approaches, jolts back upon fracture */
+    @keyframes leftThreatHand {
+      0% { transform: translateX(-35px) scale(0.96); opacity: 0.8; }
+      20% { transform: translateX(0px) scale(1); opacity: 1; }
+      22% { /* 1.2s: Fracture strike recoil */ transform: translateX(-28px) translateY(4px) rotate(-1.5deg); opacity: 1; }
+      25% { transform: translateX(-22px) translateY(-2px) rotate(-0.5deg); }
+      35% { transform: translateX(-25px) translateY(1px); }
+      55% { transform: translateX(-26px) translateY(-1px) rotate(-0.8deg); }
+      80% { transform: translateX(-25px) translateY(0px); opacity: 1; }
+      94% { transform: translateX(-35px) scale(0.96); opacity: 0.8; }
+      100% { transform: translateX(-35px) scale(0.96); opacity: 0.8; }
+    }
+
+    /* Right Reaching Hand Animation: Approaches, jolts back upon fracture */
+    @keyframes rightThreatHand {
+      0% { transform: translateX(35px) scale(0.96); opacity: 0.8; }
+      20% { transform: translateX(0px) scale(1); opacity: 1; }
+      22% { /* 1.2s: Fracture strike recoil */ transform: translateX(28px) translateY(-4px) rotate(1.5deg); opacity: 1; }
+      25% { transform: translateX(22px) translateY(2px) rotate(0.5deg); }
+      35% { transform: translateX(25px) translateY(-1px); }
+      55% { transform: translateX(26px) translateY(1px) rotate(0.8deg); }
+      80% { transform: translateX(25px) translateY(0px); opacity: 1; }
+      94% { transform: translateX(35px) scale(0.96); opacity: 0.8; }
+      100% { transform: translateX(35px) scale(0.96); opacity: 0.8; }
+    }
+
+    /* Sharp Jagged Red Lightning / Fracture Interruption */
+    @keyframes fractureFlash {
+      0%, 19% { opacity: 0; stroke-dashoffset: 400; stroke-width: 0px; }
+      21% { /* Sharp snap at 1.2s */ opacity: 1; stroke-dashoffset: 0; stroke-width: 4px; filter: drop-shadow(0 0 16px #FF3B30); }
+      24% { opacity: 0.7; stroke-width: 2.5px; }
+      26% { opacity: 1; stroke-width: 3.5px; }
+      30% { opacity: 0.9; stroke-width: 2.8px; }
+      45% { opacity: 0.85; stroke-width: 2px; }
+      65% { opacity: 0.7; stroke-width: 1.5px; }
+      82% { opacity: 0.4; stroke-width: 1px; }
+      90%, 100% { opacity: 0; }
+    }
+
+    /* Warning barrier pulses radiating from fracture center */
+    @keyframes redWarningPulse1 {
+      0%, 20% { r: 10px; opacity: 0; stroke-width: 4px; }
+      22% { opacity: 1; r: 30px; stroke-width: 3.5px; }
+      40% { r: 130px; opacity: 0; stroke-width: 0.5px; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes redWarningPulse2 {
+      0%, 35% { r: 15px; opacity: 0; stroke-width: 3px; }
+      38% { opacity: 0.85; r: 35px; stroke-width: 2.5px; }
+      60% { r: 145px; opacity: 0; stroke-width: 0.5px; }
+      100% { opacity: 0; }
+    }
+
+    /* Central Threat Hex Shield */
+    @keyframes threatShieldVibe {
+      0%, 18% { opacity: 0; transform: scale(0.7); }
+      22% { opacity: 1; transform: scale(1.1); }
+      26% { transform: scale(0.96); }
+      50% { transform: scale(1.02); opacity: 0.85; }
+      80% { transform: scale(1); opacity: 0.75; }
+      90%, 100% { opacity: 0; transform: scale(0.8); }
+    }
+
+    .left-threat-arm {
+      animation: leftThreatHand 5.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+      transform-origin: 200px 300px;
+    }
+    .right-threat-arm {
+      animation: rightThreatHand 5.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+      transform-origin: 800px 300px;
+    }
+    .fracture-lightning {
+      stroke-dasharray: 400;
+      animation: fractureFlash 5.5s cubic-bezier(0.1, 0.9, 0.2, 1) infinite;
+    }
+    .threat-pulse-1 {
+      animation: redWarningPulse1 5.5s cubic-bezier(0.15, 0.6, 0.2, 1) infinite;
+    }
+    .threat-pulse-2 {
+      animation: redWarningPulse2 5.5s cubic-bezier(0.15, 0.6, 0.2, 1) infinite;
+    }
+    .threat-shield-group {
+      animation: threatShieldVibe 5.5s ease-in-out infinite;
+      transform-origin: 500px 300px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .left-threat-arm, .right-threat-arm, .threat-shield-group { animation: none !important; transform: none !important; }
+      .threat-pulse-1, .threat-pulse-2 { display: none !important; }
+      .fracture-lightning { opacity: 0.9 !important; stroke-dashoffset: 0 !important; animation: none !important; }
+    }
+  </style>
+<link data-snapdom="injected-import" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><meta content="web_standard" name="shell-type"/>
+<!-- BEGIN: MainHeader -->
+<header class="w-full px-6 lg:px-12 py-5 max-w-7xl mx-auto flex items-center justify-between" data-purpose="site-navigation">
+<!-- Brand Logo and Subtitle -->
+<div class="flex items-center space-x-3">
+<div aria-label="Brand Icon" class="w-8 h-8 rounded-full bg-[#82E658] flex items-center justify-center text-[#1C4839] font-bold text-sm shadow-sm">
+<svg class="w-4 h-4 text-[#1C4839]" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<span class="text-sm font-bold tracking-tight text-white block leading-tight">Know Your Links</span>
+<span class="text-[10px] font-mono-code uppercase tracking-wider text-[#A2C7B7] block">TRUST HANDSHAKE</span>
+</div>
+</div>
+<!-- Top Navigation Links -->
+<nav class="flex items-center space-x-7 text-xs font-medium text-[#C2D8CE]">
+<a class="hover:text-white transition-colors" href="#how-it-inspects">How it inspects</a>
+<a class="hover:text-white transition-colors" href="#providers">Providers</a>
+<a class="hover:text-white transition-colors" href="#limitations">Limitations</a>
+<!-- Live Status Pill -->
+<div class="flex items-center space-x-2 bg-[#122D24] px-3 py-1 rounded-full border border-[#275344]">
+<span class="w-2 h-2 rounded-full bg-[#82E658] animate-pulse"></span>
+<span class="text-[11px] font-mono-code text-[#D5E6DE]">6 sources live</span>
+</div>
+</nav>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroMainSection -->
+<main class="w-full max-w-7xl mx-auto px-6 lg:px-12 pt-4 pb-12 flex-grow"><div class="flex flex-col w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+<!-- LEFT COLUMN: Action & Input Panel -->
+<div class="lg:col-span-5 flex flex-col justify-start">
+<!-- Evidence Badge -->
+<div class="inline-flex items-center space-x-2 bg-[#122D24] text-[#82E658] px-3.5 py-1.5 rounded-full text-xs font-mono-code w-max mb-5 shadow-sm">
+<span class="material-symbols-outlined text-sm leading-none" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="tracking-wide uppercase font-semibold">EVIDENCE-LED URL INSPECTION</span>
+</div>
+<!-- Main Headline -->
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-[1.08] font-display">
+        Know before you open.
+      </h1>
+<!-- Subtitle -->
+<p class="text-[#B9D4C7] text-base sm:text-lg leading-relaxed mb-8 font-light">
+        Paste an unfamiliar link. We ask six security sources what they have seen — then show you, plainly.
+      </p>
+<!-- URL Input Control Card -->
+<div class="bg-[#122E23] rounded-2xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
+<div class="flex items-center justify-between mb-3 text-xs font-mono-code">
+<label class="text-[#D3E4DB] font-semibold tracking-wider uppercase" for="url-target">PASTE UNFAMILIAR URL</label>
+<span class="text-[#82E658] flex items-center space-x-1 font-medium">
+<span class="material-symbols-outlined text-xs leading-none">check_circle</span>
+<span>never auto-opens</span>
+</span>
+</div>
+<!-- Input Box Field -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center bg-[#0B1E17] rounded-xl p-2 gap-2 mb-4">
+<div class="flex items-center px-2 py-1.5 flex-1 min-w-0">
+<span class="text-[#648F7C] text-sm font-mono-code select-none pr-1">https://</span>
+<input class="w-full bg-transparent text-[#FF6B6B] font-mono-code text-sm outline-none border-none p-0 focus:ring-0 truncate font-semibold selection:bg-[#FF3B30] selection:text-white" id="url-target" readonly="" type="text" value="auth-portal-verify[.]net/security-update"/>
+</div>
+<div class="flex items-center space-x-2 shrink-0">
+<button class="px-3.5 py-2 rounded-lg bg-[#1C4839] hover:bg-[#275e4b] text-[#D8EADB] text-xs font-mono-code transition-colors flex items-center space-x-1" type="button">
+<span class="material-symbols-outlined text-sm">content_paste</span>
+<span>Paste</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-[#E53E3E] hover:bg-[#c53030] text-white text-xs font-bold font-mono-code transition-colors flex items-center space-x-1.5 shadow-md shadow-red-950/40" type="button">
+<span>Analyze link</span>
+<span class="text-sm">→</span>
+</button>
+</div>
+</div>
+<!-- Defanged safe reference row -->
+<div class="bg-[#0D251C] rounded-xl px-3.5 py-2.5 flex items-center justify-between gap-3 text-xs font-mono-code mb-5">
+<div class="flex items-center space-x-2 min-w-0">
+<span class="text-[#7A9E8F] shrink-0 font-medium">Defanged:</span>
+<span class="text-[#FCA5A5] truncate select-all">auth-portal-verify[.]net/security-update</span>
+</div>
+<button class="text-[#82E658] hover:text-white shrink-0 font-medium text-[11px] underline underline-offset-2 transition-colors cursor-pointer" onclick="navigator.clipboard?.writeText('auth-portal-verify[.]net/security-update')" type="button">
+            Copy safe link
+          </button>
+</div>
+<!-- Protocol & Transparency Signals -->
+<p class="text-xs text-[#95B7A8] leading-relaxed mb-4">
+          Sent to 6 analysis sources. Never auto-opens. Conflicts and timeouts stay visible.
+        </p>
+<!-- Feature bullets checklist -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-4 border-t border-[#1C4132] text-xs font-mono-code text-[#B7D2C4]">
+<div class="flex items-center space-x-1.5">
+<span class="text-[#82E658] font-bold">✓</span>
+<span class="truncate">No account needed</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="text-[#82E658] font-bold">✓</span>
+<span class="truncate">Conflicts stay visible</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="text-[#82E658] font-bold">✓</span>
+<span class="truncate">Print-friendly report</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Interactive Red Fracture Stage & Real-time Metrics -->
+<div class="lg:col-span-7 flex flex-col justify-start">
+<div class="bg-[#0C241B] rounded-2xl p-4 sm:p-6 shadow-2xl relative overflow-hidden flex flex-col">
+<!-- Live Telemetry Status Header -->
+<div class="flex flex-wrap items-center justify-between gap-2.5 pb-4 mb-3 border-b border-[#183F30]">
+<div class="flex items-center space-x-2.5">
+<div class="inline-flex items-center space-x-2 bg-[#3D0C0C] text-[#FF6B6B] px-3 py-1 rounded-full text-xs font-mono-code font-bold tracking-wide shadow-sm animate-pulse">
+<span class="w-2 h-2 rounded-full bg-[#FF3B30]"></span>
+<span>THREAT DETECTED — HANDSHAKE INTERRUPTED</span>
+</div>
+</div>
+<div class="text-[11px] font-mono-code text-[#F87171] flex items-center space-x-1.5 opacity-90">
+<span class="material-symbols-outlined text-sm leading-none">bolt</span>
+<span>motion: fracture interruption</span>
+</div>
+</div>
+<!-- Central Stage Container with Dot-Matrix Pattern & Exact Animated Vector Handshake Fracture -->
+<div class="relative w-full h-[320px] sm:h-[380px] bg-[#071912] bg-grid-dots rounded-xl overflow-hidden flex items-center justify-center p-2 shadow-inner">
+<!-- Animated SVG Graphic Stage -->
+<svg aria-label="Visual demonstration of a verified malicious link interrupting trust handshake with jagged red fracture" height="100%" role="img" style="background: transparent; overflow: visible;" viewbox="0 0 1000 600" width="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter height="200%" id="threat-red-flash" width="200%" x="-50%" y="-50%"><fegaussianblur result="blur1" stddeviation="5"></fegaussianblur><fegaussianblur result="blur2" stddeviation="16"></fegaussianblur><femerge><femergenode in="blur2"></femergenode><femergenode in="blur1"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter><filter height="160%" id="threat-haze" width="160%" x="-30%" y="-30%"><fegaussianblur result="blur" stddeviation="8"></fegaussianblur><femerge><femergenode in="blur"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter><lineargradient id="threatHandGrad" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#C62828" stop-opacity="0.8"></stop><stop offset="50%" stop-color="#FF6B6B" stop-opacity="1"></stop><stop offset="100%" stop-color="#C62828" stop-opacity="0.8"></stop></lineargradient><lineargradient id="warningScanBeam" x1="0%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#C62828" stop-opacity="0"></stop><stop offset="50%" stop-color="#FF3B30" stop-opacity="0.95"></stop><stop offset="100%" stop-color="#C62828" stop-opacity="0"></stop></lineargradient></defs><g filter="url(#threat-red-flash)"><circle class="threat-pulse-1" cx="500" cy="300" fill="none" r="20" stroke="#FF3B30"></circle><circle class="threat-pulse-2" cx="500" cy="300" fill="none" r="25" stroke="#C62828"></circle></g><line stroke="#C62828" stroke-dasharray="6 8" stroke-opacity="0.35" stroke-width="1.5" x1="500" x2="500" y1="60" y2="540"></line><g class="threat-shield-group" filter="url(#threat-haze)"><polygon fill="#C62828" fill-opacity="0.18" points="500,240 545,265 545,335 500,360 455,335 455,265" stroke="#FF3B30" stroke-width="2"></polygon><polygon fill="none" points="500,252 534,272 534,328 500,348 466,328 466,272" stroke="#FF6B6B" stroke-dasharray="4 4" stroke-opacity="0.6" stroke-width="1.2"></polygon><circle cx="500" cy="300" fill="#C62828" fill-opacity="0.8" r="14"></circle><path d="M 500 293 L 500 301" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.5"></path><circle cx="500" cy="305" fill="#FFFFFF" r="1.3"></circle></g><g filter="url(#threat-red-flash)"><path class="fracture-lightning" d="M 500 120 L 492 190 L 515 240 L 485 285 L 518 315 L 488 360 L 510 420 L 496 480" fill="none" stroke="#FF3B30" stroke-linecap="round" stroke-linejoin="round"></path><path class="fracture-lightning" d="M 515 240 L 540 225 L 555 242" fill="none" stroke="#FF6B6B" stroke-linecap="round" stroke-linejoin="round"></path><path class="fracture-lightning" d="M 485 285 L 452 275 L 438 290" fill="none" stroke="#FF6B6B" stroke-linecap="round" stroke-linejoin="round"></path><path class="fracture-lightning" d="M 518 315 L 552 328 L 565 315" fill="none" stroke="#FF6B6B" stroke-linecap="round" stroke-linejoin="round"></path><path class="fracture-lightning" d="M 488 360 L 460 375 L 442 362" fill="none" stroke="#FF6B6B" stroke-linecap="round" stroke-linejoin="round"></path></g><g class="left-threat-arm"><g filter="url(#threat-haze)" opacity="0.6"><path d="M 60 390 L 170 370 C 185 340, 195 300, 185 265 L 75 280" fill="none" stroke="#C62828" stroke-linecap="round" stroke-width="4"></path><path d="M 205 305 C 240 300, 280 295, 315 282 C 338 272, 360 242, 348 215 C 338 190, 310 200, 290 220" fill="none" stroke="#C62828" stroke-linecap="round" stroke-width="4"></path><path d="M 350 312 C 384 304, 428 296, 465 294" fill="none" stroke="#FF3B30" stroke-linecap="round" stroke-width="4"></path></g><g stroke-linecap="round" stroke-linejoin="round"><path d="M 60 390 L 170 370 C 185 340, 195 300, 185 265 L 75 280" fill="none" stroke="#C62828" stroke-width="2.6"></path><path d="M 170 370 C 195 375, 215 340, 205 290 C 200 260, 185 260, 180 263" fill="none" stroke="#FF6B6B" stroke-width="2"></path><path d="M 205 305 C 240 300, 280 295, 315 282 C 338 272, 360 242, 348 215 C 338 190, 310 200, 290 220" fill="none" stroke="#FF3B30" stroke-width="2.6"></path><path d="M 315 282 C 350 276, 390 262, 416 252 C 430 246, 440 256, 426 268 C 400 290, 365 306, 335 316" fill="none" stroke="#FF8585" stroke-width="2.6"></path><path d="M 350 312 C 384 304, 428 296, 465 294 C 471 292, 473 300, 467 306 C 430 326, 382 340, 340 342" fill="none" stroke="#FF3B30" stroke-width="3"></path><path d="M 340 342 C 374 336, 424 330, 446 328 C 454 327, 454 336, 446 342 C 410 362, 370 370, 326 370" fill="none" stroke="#FF6B6B" stroke-width="2.5"></path><path d="M 326 370 C 356 370, 398 368, 416 368 C 424 368, 424 377, 412 381 C 380 396, 344 400, 304 396" fill="none" stroke="#C62828" stroke-width="2.5"></path><circle cx="465" cy="294" fill="#FF3B30" filter="url(#threat-red-flash)" r="4.5"></circle><circle cx="446" cy="328" fill="#FF6B6B" r="3"></circle></g></g><g class="right-threat-arm"><g filter="url(#threat-haze)" opacity="0.6"><path d="M 940 215 L 830 235 C 815 265, 805 305, 815 340 L 925 325" fill="none" stroke="#C62828" stroke-linecap="round" stroke-width="4"></path><path d="M 795 300 C 760 305, 720 310, 685 322 C 662 332, 640 362, 652 390 C 662 415, 690 405, 710 385" fill="none" stroke="#C62828" stroke-linecap="round" stroke-width="4"></path><path d="M 652 292 C 615 300, 550 306, 528 295" fill="none" stroke="#FF3B30" stroke-linecap="round" stroke-width="4"></path></g><g stroke-linecap="round" stroke-linejoin="round"><path d="M 940 215 L 830 235 C 815 265, 805 305, 815 340 L 925 325" fill="none" stroke="#C62828" stroke-width="2.6"></path><path d="M 830 235 C 805 230, 785 265, 795 315 C 800 345, 815 345, 820 342" fill="none" stroke="#FF6B6B" stroke-width="2"></path><path d="M 795 300 C 760 305, 720 310, 685 322 C 662 332, 640 362, 652 390 C 662 415, 690 405, 710 385" fill="none" stroke="#FF3B30" stroke-width="2.6"></path><path d="M 685 322 C 650 328, 608 342, 580 352 C 564 358, 554 348, 570 334 C 598 310, 640 296, 672 286" fill="none" stroke="#FF8585" stroke-width="2.6"></path><path d="M 652 292 C 615 300, 550 306, 528 295 C 520 292, 520 283, 530 278 C 562 260, 608 250, 640 248" fill="none" stroke="#FF3B30" stroke-width="3"></path><path d="M 640 248 C 600 253, 554 258, 536 260 C 528 261, 527 252, 535 247 C 570 228, 610 219, 654 218" fill="none" stroke="#FF6B6B" stroke-width="2.5"></path><path d="M 654 218 C 620 218, 580 220, 562 220 C 553 220, 553 211, 564 207 C 596 192, 630 188, 674 193" fill="none" stroke="#C62828" stroke-width="2.5"></path><circle cx="528" cy="295" fill="#FF3B30" filter="url(#threat-red-flash)" r="4.5"></circle><circle cx="536" cy="260" fill="#FF6B6B" r="3"></circle></g></g><g filter="url(#threat-red-flash)"><circle cx="495" cy="220" fill="#FF8585" r="2"></circle><circle cx="508" cy="270" fill="#FF3B30" r="2.5"></circle><circle cx="488" cy="330" fill="#FF6B6B" r="2"></circle><circle cx="512" cy="390" fill="#FF3B30" r="2.5"></circle></g></svg>
+<!-- Floating Badge at Bottom Center of Visualizer -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center space-x-2 bg-[#2D0B0B]/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-red-800/60 shadow-lg text-xs font-mono-code text-[#FF9B9B] whitespace-nowrap">
+<span class="w-2 h-2 rounded-full bg-[#EF4444] animate-ping"></span>
+<span class="font-semibold tracking-wide">malicious destination identified</span>
+</div>
+</div>
+<!-- Hero Bottom Telemetry & Analysis Metrics Bar -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 pt-4 border-t border-[#183F30]">
+<!-- Metric 1: Overall Heuristic Threat Index -->
+<div class="bg-[#081B13] rounded-xl p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-mono-code text-[#94BCAB] uppercase tracking-wider font-semibold">OVERALL INDEX</span>
+<span class="inline-flex items-center space-x-1.5 text-xs font-mono-code text-[#EF4444] bg-[#2E0A0A] px-2 py-0.5 rounded-full font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#EF4444]"></span>
+<span>High Risk</span>
+</span>
+</div>
+<div class="flex items-baseline space-x-2 mb-2">
+<span class="text-3xl font-extrabold text-[#FF4D4D] tracking-tight font-display">88</span>
+<span class="text-sm font-mono-code text-[#A6C9BA]">/ 100</span>
+<span class="text-xs font-mono-code text-[#EF4444] font-semibold ml-1">(active threat)</span>
+</div>
+<!-- Threat Level Meter Bar -->
+<div class="w-full bg-[#17382B] h-2 rounded-full overflow-hidden mb-2">
+<div class="bg-gradient-to-r from-amber-500 via-rose-500 to-red-600 h-full rounded-full w-[88%]"></div>
+</div>
+<span class="text-[11px] font-mono-code text-[#76A18F]">Heuristic index — multiple indicators</span>
+</div>
+<!-- Metric 2: Provider Consensus Verdict -->
+<div class="bg-[#081B13] rounded-xl p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-mono-code text-[#94BCAB] uppercase tracking-wider font-semibold">PROVIDER VERDICT</span>
+<span class="text-xs font-mono-code font-bold text-[#FF8585] bg-[#2E0A0A] px-2 py-0.5 rounded-full">
+                Confirmed
+              </span>
+</div>
+<div class="flex items-center space-x-2 text-sm font-bold text-white mb-2">
+<span class="text-amber-400">⚠</span>
+<span>4 of 6 sources flagged threat</span>
+</div>
+<!-- Mini Breakout Indicators -->
+<div class="flex items-center space-x-2 text-[11px] font-mono-code text-[#D5E5DC] mb-2 flex-wrap gap-y-1">
+<span class="px-1.5 py-0.5 rounded bg-[#3D0F0F] text-[#FF8E8E] font-medium">4 malicious</span>
+<span class="px-1.5 py-0.5 rounded bg-[#38230D] text-[#FFB668] font-medium">1 suspicious</span>
+<span class="px-1.5 py-0.5 rounded bg-[#1B362A] text-[#9CBDB0] font-medium">1 inconclusive</span>
+</div>
+<span class="text-[11px] font-mono-code text-[#76A18F]">Flagged by intelligence consensus.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main>
+<!-- BEGIN: EvidenceBreakdownSection -->
+<section class="w-full bg-[#F4F7F4] text-[#133025] pt-10 pb-12 px-6 lg:px-12 border-t border-[#315E4D]" data-purpose="evidence-sources-breakdown">
+<div class="max-w-7xl mx-auto">
+<!-- Section subheader & Legend -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#D8E3DC] gap-4 mb-7 text-xs font-mono-code">
+<div class="text-[#36594C] font-semibold tracking-wider flex items-center space-x-2">
+<span>ONE PASTE</span>
+<span class="text-[#7D9F91]">: :</span>
+<span>SIX INDEPENDENT CHECKS + EVIDENCE</span>
+</div>
+<div class="flex items-center space-x-4">
+<span class="flex items-center space-x-1.5 text-[#C52B27]">
+<span class="w-2 h-2 rounded-full bg-[#E53E3E]"></span>
+<span>threat (4)</span>
+</span>
+<span class="flex items-center space-x-1.5 text-[#C05621]">
+<span class="w-2 h-2 rounded-full bg-[#DD6B20]"></span>
+<span>suspicious (1)</span>
+</span>
+<span class="flex items-center space-x-1.5 text-[#4A5568]">
+<span class="w-2 h-2 rounded-full bg-[#718096]"></span>
+<span>inconclusive (1)</span>
+</span>
+</div>
+</div>
+<!-- 6 Provider Cards Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 mb-8">
+<!-- Card 1: PhishGuard -->
+<div class="bg-white border border-[#F8B4B4] rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-7 h-7 rounded-lg bg-[#FFF5F5] border border-[#FED7D7] flex items-center justify-center text-[#E53E3E] mb-2.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h2 class="text-xs font-bold text-[#1F2937]">PhishGuard</h2>
+<p class="text-[11px] text-[#E53E3E] font-medium leading-tight mt-0.5 font-mono-code">credential harvesting</p>
+</div>
+<div class="mt-4 pt-2 border-t border-[#FEE2E2] flex items-center justify-between text-[11px] font-mono-code">
+<span class="text-[#E53E3E] font-semibold flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#E53E3E]"></span>
+<span>threat</span>
+</span>
+<span class="text-[#4B5563]">92/100</span>
+</div>
+</div>
+<!-- Card 2: Safe Browsing -->
+<div class="bg-white border border-[#F8B4B4] rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-7 h-7 rounded-lg bg-[#FFF5F5] border border-[#FED7D7] flex items-center justify-center text-[#E53E3E] mb-2.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h2 class="text-xs font-bold text-[#1F2937]">Safe Browsing</h2>
+<p class="text-[11px] text-[#E53E3E] font-medium leading-tight mt-0.5 font-mono-code">deceptive site list</p>
+</div>
+<div class="mt-4 pt-2 border-t border-[#FEE2E2] flex items-center justify-between text-[11px] font-mono-code">
+<span class="text-[#E53E3E] font-semibold flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#E53E3E]"></span>
+<span>malicious</span>
+</span>
+<span class="text-[#4B5563]">listed</span>
+</div>
+</div>
+<!-- Card 3: URLhaus -->
+<div class="bg-white border border-[#F8B4B4] rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-7 h-7 rounded-lg bg-[#FFF5F5] border border-[#FED7D7] flex items-center justify-center text-[#E53E3E] mb-2.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h2 class="text-xs font-bold text-[#1F2937]">URLhaus</h2>
+<p class="text-[11px] text-[#E53E3E] font-medium leading-tight mt-0.5 font-mono-code">active payload</p>
+</div>
+<div class="mt-4 pt-2 border-t border-[#FEE2E2] flex items-center justify-between text-[11px] font-mono-code">
+<span class="text-[#E53E3E] font-semibold flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#E53E3E]"></span>
+<span>threat payload</span>
+</span>
+<span class="text-[#4B5563]">active</span>
+</div>
+</div>
+<!-- Card 4: VirusTotal -->
+<div class="bg-white border border-[#F8B4B4] rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-7 h-7 rounded-lg bg-[#FFF5F5] border border-[#FED7D7] flex items-center justify-center text-[#E53E3E] mb-2.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h2 class="text-xs font-bold text-[#1F2937]">VirusTotal</h2>
+<p class="text-[11px] text-[#718096] font-medium leading-tight mt-0.5 font-mono-code">multi-engine 42/72</p>
+</div>
+<div class="mt-4 pt-2 border-t border-[#FEE2E2] flex items-center justify-between text-[11px] font-mono-code">
+<span class="text-[#E53E3E] font-semibold flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#E53E3E]"></span>
+<span>malicious</span>
+</span>
+<span class="text-[#4B5563]">42 flags</span>
+</div>
+</div>
+<!-- Card 5: urlscan.io -->
+<div class="bg-white border border-[#FBD38D] rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-7 h-7 rounded-lg bg-[#FFFAF0] border border-[#FEEBC8] flex items-center justify-center text-[#DD6B20] mb-2.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h2 class="text-xs font-bold text-[#1F2937]">urlscan.io</h2>
+<p class="text-[11px] text-[#C05621] font-medium leading-tight mt-0.5 font-mono-code">login lure credential form</p>
+</div>
+<div class="mt-4 pt-2 border-t border-[#FEEBC8] flex items-center justify-between text-[11px] font-mono-code">
+<span class="text-[#DD6B20] font-semibold flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#DD6B20]"></span>
+<span>suspicious</span>
+</span>
+<span class="text-[#4B5563]">form lure</span>
+</div>
+</div>
+<!-- Card 6: LinkGuard ML -->
+<div class="bg-white border border-[#F8B4B4] rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-7 h-7 rounded-lg bg-[#FFF5F5] border border-[#FED7D7] flex items-center justify-center text-[#E53E3E] mb-2.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h2 class="text-xs font-bold text-[#1F2937]">LinkGuard ML</h2>
+<p class="text-[11px] text-[#718096] font-medium leading-tight mt-0.5 font-mono-code">lexical impersonation</p>
+</div>
+<div class="mt-4 pt-2 border-t border-[#FEE2E2] flex items-center justify-between text-[11px] font-mono-code">
+<span class="text-[#E53E3E] font-semibold flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#E53E3E]"></span>
+<span>high risk</span>
+</span>
+<span class="text-[#4B5563]">0.94</span>
+</div>
+</div>
+</div>
+<!-- Actionable Advisory Callouts Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Red Danger Warning Box -->
+<div class="bg-[#FFF5F5] border border-[#FEB2B2] rounded-xl p-4 flex items-start space-x-3.5">
+<div class="w-6 h-6 rounded-full bg-[#FED7D7] text-[#C53030] flex items-center justify-center shrink-0 mt-0.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<p class="text-xs text-[#742A2A] leading-relaxed">
+<strong class="font-bold text-[#9B2C2C]">High risk of credential theft or deceptive payload.</strong> Multiple independent security feeds confirmed malicious indicators on this destination. Do not submit credentials or download files.
+          </p>
+</div>
+<!-- Grey Evidence Note Box -->
+<div class="bg-[#E9F0EC] border border-[#CBDCD2] rounded-xl p-4 flex items-start space-x-3.5">
+<div class="w-6 h-6 rounded-full bg-[#D4E3DB] text-[#2D5646] flex items-center justify-center shrink-0 mt-0.5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<p class="text-xs text-[#284E3F] leading-relaxed">
+<strong class="font-bold text-[#19362B]">Evidence before claims.</strong> Overall index (88/100) reflects multiple confirmed malicious signals across independent providers.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: EvidenceBreakdownSection -->
+<!-- BEGIN: SiteFooter -->
+<footer class="w-full bg-[#0C1E17] text-[#7B9F90] text-xs font-mono-code py-4 px-6 lg:px-12 border-t border-[#1D4033]" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
+<div>
+<span>© Know Your Links — awareness tool, not antivirus. Does not guarantee safety.</span>
+</div>
+<div class="flex items-center space-x-3 text-[#A2C4B6]">
+<span>Heuristic index out of 100</span>
+<span>•</span>
+<span>Reduced-motion safe</span>
+<span>•</span>
+<span>Mobile ready</span>
+</div>
+</div>
+</footer>
+<!-- END: SiteFooter -->
+</body></html>

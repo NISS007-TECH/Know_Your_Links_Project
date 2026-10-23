@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Primary & Neutrals */
+  --color-deep-jade: #1C4839;
+  --color-ice-mint: #D4F6EB;
+  --color-sea-glass: #91C7B7;
+  --color-lime-accent: #8FD14F;
+  --color-paper-white: #F7F8F4;
+
+  /* Verification & Semantic Signals */
+  --color-security-green: #16834A;
+  --color-security-red: #C62828;
+  --color-caution-amber: #A36A13;
+
+  /* Paper & Ink Report Theme */
+  --color-paper: #F7F8F4;
+  --color-paper-surface: #FFFFFF;
+  --color-paper-muted: #EFF1EC;
+  --color-paper-border: #DCE1D8;
+  --color-paper-subtle: #E4E8E0;
+
+  --color-ink: #17251F;
+  --color-ink-muted: #3D5248;
+  --color-ink-subtle: #62786E;
+  --color-ink-faint: #8A9F96;
+
+  /* Verdict Colors */
+  --color-verdict-green: #16834A;
+  --color-verdict-green-bg: #EAF6EE;
+  --color-verdict-green-border: #A3D9B5;
+  --color-verdict-red: #C62828;
+  --color-verdict-red-bg: #FDEDED;
+  --color-verdict-red-border: #F5B7B7;
+  --color-verdict-amber: #A36A13;
+  --color-verdict-amber-bg: #FEF7EC;
+  --color-verdict-amber-border: #F3D39E;
+
+  /* Extended Jade Palette */
+  --color-jade-950: #0F231C;
+  --color-jade-900: #153227;
+  --color-jade-850: #172F26;
+  --color-jade-800: #1C4839;
+  --color-jade-700: #265D4B;
+  --color-jade-600: #347560;
+  --color-jade-500: #529680;
+  --color-jade-200: #B6DDD0;
+  --color-jade-100: #E1EFEA;
+
+  /* Typography */
+  --font-sans: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
+}
+
+:root {
+  --background: #1C4839;
+  --foreground: #FFFFFF;
+}
+
+html {
+  font-size: 16.5px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism token */
+.glass-dark {
+  background: rgba(18, 41, 33, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Reticle crosshair styling */
+.reticle-line-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(143, 209, 79, 0.3) 30%,
+    rgba(143, 209, 79, 0.5) 50%,
+    rgba(143, 209, 79, 0.3) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-50%);
+}
+
+/* Dot matrix stage texture */
+.bg-grid-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    margin: 10mm 12mm;
+    size: auto;
+  }
+
+  html,
+  body {
+    background-color: #ffffff !important;
+    color: #17251F !important;
+    font-size: 9.5pt;
+    line-height: 1.35;
+    height: auto !important;
+    min-height: auto !important;
+    display: block !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  header {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  [aria-label="Security Analysis Report"] {
+    break-before: avoid !important;
+    page-break-before: avoid !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .bg-paper-surface,
+  .bg-paper-muted,
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .shadow-sm,
+  .shadow-md,
+  .shadow-lg {
+    box-shadow: none !important;
+  }
+}
